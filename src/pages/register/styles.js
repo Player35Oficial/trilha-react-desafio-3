@@ -19,7 +19,11 @@ export const Column = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  max-width: 320px;
+  max-width: 330px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  /* text-align: flex-start; */
 
   form {
     margin: 16px 0;
@@ -49,4 +53,16 @@ export const PrivacyPolicyTerms = styled.p`
   font-size: 16px;
   font-weight: 400;
   margin-top: 32px;
+`;
+
+export const AlreadyRegistered = styled.p`
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 11px;
+
+  a {
+    color: #23dd7a;
+    cursor: pointer;
+    text-decoration: none;
+  }
 `;

@@ -9,6 +9,7 @@ import {
   TitleRegister,
   SubtitleRegister,
   PrivacyPolicyTerms,
+  AlreadyRegistered,
 } from "./styles";
 
 import { useForm } from "react-hook-form";
@@ -67,6 +68,9 @@ const Register = () => {
               Ao clicar em "criar minha conta grátis", declaro que aceito as
               Políticas de Privacidade e os Termos de Uso da DIO.
             </PrivacyPolicyTerms>
+            <AlreadyRegistered>
+              Já tenho conta. <a href="/login">Fazer login</a>
+            </AlreadyRegistered>
           </Wrapper>
         </Column>
       </Container>
