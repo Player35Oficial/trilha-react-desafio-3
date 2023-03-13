@@ -18,6 +18,7 @@ import {
   Row,
   Wrapper,
 } from "./styles";
+import { IFormData } from "./types";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,12 +27,12 @@ const Login = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IFormData>({
     reValidateMode: "onChange",
     mode: "onChange",
   });
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async (formData: IFormData) => {
     try {
       const { data } = await api.get(
         `/users?email=${formData.email}&senha=${formData.senha}`
