@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import { MdEmail, MdLock } from "react-icons/md";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -18,10 +16,10 @@ import {
   Wrapper,
 } from "./styles";
 import { IFormData } from "./types";
-import { AuthContext } from "../../context/auth";
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin } = useAuth();
 
   const {
     control,

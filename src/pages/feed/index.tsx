@@ -8,7 +8,7 @@ import { Container, Column, Title, TitleHighlight } from "./styles";
 const Feed = () => {
   return (
     <>
-      <Header/>
+      <Header />
       <Container>
         <Column flex={3}>
           <Title>Feed</Title>
