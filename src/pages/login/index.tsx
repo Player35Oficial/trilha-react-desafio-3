@@ -3,8 +3,7 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
-import { api } from "../../services/api";
-
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -19,9 +18,10 @@ import {
   Wrapper,
 } from "./styles";
 import { IFormData } from "./types";
+import { AuthContext } from "../../context/auth";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const { handleLogin } = useContext(AuthContext);
 
   const {
     control,
@@ -33,20 +33,7 @@ const Login = () => {
   });
 
   const onSubmit = async (formData: IFormData) => {
-    try {
-      const { data } = await api.get(
-        `/users?email=${formData.email}&senha=${formData.senha}`
-      );
-
-      if (data.length && data[0].id) {
-        navigate("/feed");
-        return;
-      }
-
-      alert("Usuário ou senha inválido");
-    } catch (e) {
-      //TODO: HOUVE UM ERRO
-    }
+    handleLogin(formData);
   };
 
   console.log("errors", errors);
@@ -77,10 +64,10 @@ const Login = () => {
                 type="password"
                 placeholder="Senha"
                 leftIcon={<MdLock />}
-                name="senha"
+                name="password"
                 control={control}
               />
-              {errors.senha && <span>Senha é obrigatório</span>}
+              {errors.password && <span>Senha é obrigatório</span>}
               <Button title="Entrar" variant="secondary" type="submit" />
             </form>
             <Row>
